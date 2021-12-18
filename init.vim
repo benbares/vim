@@ -1,5 +1,27 @@
 "I really, really hope this works...
 
+syntax on
+set exrc
+set guicursor=
+set termguicolors
+set noerrorbells
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set nohlsearch
+set nu
+set nowrap
+set hidden
+set ignorecase
+set smartcase
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+set scrolloff=8
+set signcolumn=yes
+
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
@@ -58,30 +80,11 @@ Plug 'gruvbox-community/gruvbox'
 
 call plug#end()
 
-syntax on
-
 let g:gruvbox_italic=1
 colorscheme gruvbox
 set background=dark
 
-set guicursor=
-set termguicolors
-set noerrorbells
-set tabstop=4 softtabstop=4
-set shiftwidth=4
-set expandtab
-set nohlsearch
-set nu
-set nowrap
-set hidden
-set smartcase
-set noswapfile
-set nobackup
-set undodir=~/.config/nvim/init.vim/undodir
-set undofile
-set incsearch
-set scrolloff=8
-set signcolumn=yes
+
 let mapleader = " "
 
 " Remaps
@@ -101,4 +104,15 @@ map <leader>l :wincmd l<CR>
 nmap <leader>pf :CtrlP<CR>
 nnoremap <Leader>gd :GoDef<Enter>
 nnoremap <Leader>pt :NERDTreeToggle<Enter>
+
+fun! TrimWhitespace()
+   let l:save = winsaveiew()
+   keeppatterns %/\s\+$//e
+   call winrestview(l:save)
+endfun
+
+augroup BEN
+    autocmd!
+    autocmd BufWritePre * :call TrimWhitespace()
+augroup END
 
