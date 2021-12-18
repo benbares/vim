@@ -5,9 +5,6 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 call plug#begin(~/.config/nvim/init.vim)
 
-" Gruvy
-Plug 'gruvbox-community/gruvbox'
-
 " Git stuff
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -55,6 +52,9 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
+" Gruvy
+Plug 'gruvbox-community/gruvbox'
 
 call plug#end()
 
