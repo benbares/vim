@@ -1,9 +1,9 @@
+"I really, really hope this works...
+
+
 syntax on
-
-unlet! skip_defaults_vim
-source $VIMRUNTIME/defaults.vim
-
-packloadall
+let g:gruvbox_italic=1
+colorscheme gruvbox
 
 set guicursor=
 set termguicolors
@@ -18,36 +18,65 @@ set hidden
 set smartcase
 set noswapfile
 set nobackup
-set undodir=~/.vim/undodir
+set undodir=~/.config/nvim/init.vim/undodir
 set undofile
 set incsearch
 set scrolloff=8
 set signcolumn=yes
+let mapleader = " "
 
-let g:gruvbox_italic=1
+" Split windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
-autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-" A fuzzy file finder
-Plug 'kien/ctrlp.vim'
-" Comment/Uncomment tool
-Plug 'scrooloose/nerdcommenter'
-" Switch to the begining and the end of a block by pressing %
-Plug 'tmhedberg/matchit'
-" A Tree-like side bar for better navigation
-Plug 'scrooloose/nerdtree'
-" A cool status bar
-Plug 'vim-airline/vim-airline'
-" Airline themes
-Plug 'vim-airline/vim-airline-themes'
-" Nord
-Plug 'arcticicestudio/nord-vim'
-" Better syntax-highlighting for filetypes in vim
-Plug 'sheerun/vim-polyglot'
-" Intellisense engine
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Git integration
+call plug#begin(~/.config/nvim/init.vim)
+
+" Gruvy
+Plug 'gruvbox-community/gruvbox'
+
+" ITS TPOPE TIME
+" Gitegration
 Plug 'tpope/vim-fugitive'
-" Auto-close braces and scopes
+
+"Comment stuff out aka fuck that line
+Plug 'tpope/vim-commentary'
+
+" Search and replace words because spelinng is hrad sumtimes
+Plug 'tpope/vim-abolish
+
+" fuzzy finder to find my fuzzy files
+Plug 'kien/ctrlp.vim'
+
+" minecraft skillz with %
+" its block jumping..those are the skillz
+Plug 'tmhedberg/matchit'
+
+" FILESFILESFILES
+Plug 'scrooloose/nerdtree', {'on':  'NERDTreeToggle' }
+
+" status bar swag
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Pretty Colors for Syntax Highlighting
+Plug 'sheerun/vim-polyglot'
+
+" Intellisense engine...idk its just good
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Auto-close braces and scopes because why is this not already a default setting in every editor
 Plug 'jiangmiao/auto-pairs'
+
+" telescope requirements...
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
+call plug#end()
