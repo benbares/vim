@@ -58,6 +58,7 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 call plug#end()
 
+syntax on
 
 let g:gruvbox_italic=1
 colorscheme gruvbox
@@ -100,8 +101,4 @@ map <leader>l :wincmd l<CR>
 nmap <leader>pf :CtrlP<CR>
 nnoremap <Leader>gd :GoDef<Enter>
 nnoremap <Leader>pt :NERDTreeToggle<Enter>
-
-
-
-
 
