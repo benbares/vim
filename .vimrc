@@ -1,37 +1,5 @@
 "I really, really hope this works...
 
-
-syntax on
-let g:gruvbox_italic=1
-colorscheme gruvbox
-
-set guicursor=
-set termguicolors
-set noerrorbells
-set tabstop=4 softtabstop=4
-set shiftwidth=4
-set expandtab
-set nohlsearch
-set nu
-set nowrap
-set hidden
-set smartcase
-set noswapfile
-set nobackup
-set undodir=~/.config/nvim/init.vim/undodir
-set undofile
-set incsearch
-set scrolloff=8
-set signcolumn=yes
-let mapleader = " "
-
-" Split windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
@@ -80,3 +48,50 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 call plug#end()
+
+
+let g:gruvbox_italic=1
+colorscheme gruvbox
+
+set guicursor=
+set termguicolors
+set noerrorbells
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set nohlsearch
+set nu
+set nowrap
+set hidden
+set smartcase
+set noswapfile
+set nobackup
+set undodir=~/.config/nvim/init.vim/undodir
+set undofile
+set incsearch
+set scrolloff=8
+set signcolumn=yes
+let mapleader = " "
+
+" Remaps
+
+" Split windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Window navigation
+map <leader>h :wincmd h<CR>
+map <leader>j :wincmd j<CR>
+map <leader>k :wincmd k<CR>
+map <leader>l :wincmd l<CR>
+
+nmap <leader>pf :CtrlP<CR>
+nnoremap <Leader>gd :GoDef<Enter>
+nnoremap <Leader>pt :NERDTreeToggle<Enter>
+
+
+
+
+
