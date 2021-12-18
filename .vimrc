@@ -8,6 +8,15 @@ call plug#begin(~/.config/nvim/init.vim)
 " Gruvy
 Plug 'gruvbox-community/gruvbox'
 
+" Git stuff
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
+
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
+nnoremap <leader>gc :GCheckout<CR>
+
 " ITS TPOPE TIME
 " Gitegration
 Plug 'tpope/vim-fugitive'
