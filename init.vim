@@ -115,4 +115,3 @@ augroup BEN
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()
 augroup END
-
